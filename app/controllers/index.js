@@ -2,16 +2,34 @@
 function doClickAddText(e){
 	Ti.API.info("doClickAddText");
 	var coords = getLocation();
+	Ti.API.info("Result:" + coords);
 	
 }
 
+function fakeit(){
+	var coords = {
+		accuracy: 10,
+		altitude: 0,
+		altitudeAccuracy: 10,
+		heading: 0,
+		latitude: 65.9667,
+		longtitude: -18.5333,
+		speed: 0,
+		timestamp: new Date().getTime()
+	};
+	return coords;
+}
 function getLocation(){
 	
-	if( Titanium.Geolocation.locationServicesEnabled === false ) {
-	    Ti.API.debug('Your device has GPS turned off. Please turn it on.');
-	}
+	// TODO this is a stub and should be removed when the location is up and running on emulators and simulatora
+	return fakeit();
+	
 
 	if(OS_ANDROID){
+		if( Titanium.Geolocation.locationServicesEnabled === false ) {
+		    Ti.API.debug('Your device has GPS turned off. Please turn it on.');
+		}
+
 		gpsProvider = Ti.Geolocation.Android.createLocationProvider({
 	    	name: Ti.Geolocation.PROVIDER_GPS,
 		    minUpdateTime: 60, 
@@ -22,14 +40,12 @@ function getLocation(){
 		Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;	
 	}
 	
-	
-	
 	Titanium.Geolocation.getCurrentPosition(function(e){
 		if(e.error){
-			Ti.API.error(e.error);
+			Ti.API.error("Return error: " + e.error);
 		}
 		if(e.success){
-			Ti.API.info("success: " + e.coords);
+			
 			return e.coords;
 		}		
 		
