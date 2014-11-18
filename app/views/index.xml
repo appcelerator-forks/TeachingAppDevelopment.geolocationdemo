@@ -1,0 +1,21 @@
+<Alloy>
+	<TabGroup>
+		<Tab title="data entry" icon="tabicon_cross.png">
+			<Window title="Data entry">
+				<View>
+					<Label>Data entry here</Label>
+					<TextArea id="taTextContent" />
+					<Button onClick="doClickAddText">Add text to this location</Button>
+				</View>
+				
+			</Window>
+		</Tab>	
+		<Tab title="data list" icon="tabicon_round.png">
+			<Window title="Data list">
+				<View>
+					<Label>Positionlist</Label>	
+				</View>
+			</Window>
+		</Tab>	
+	</TabGroup>
+</Alloy>

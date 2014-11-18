@@ -1,0 +1,13 @@
+"Window":{
+	layout: "vertical",
+	backgroundColor: "#fff",
+	orientationModes: [
+		Titanium.UI.PORTRAIT,
+		Titanium.UI.LANDSCAPE_LEFT,
+		Titanium.UI.LANDSCAPE_RIGHT
+	]
+},
+"View": {
+	layout: "vertical",
+	top:"4%"	
+}
