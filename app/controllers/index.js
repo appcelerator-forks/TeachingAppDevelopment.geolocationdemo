@@ -1,12 +1,16 @@
 
+// Use this stub flag when testing on emulators / simulators that does not suppoort geolocation
+var STUB_IT = "false";
+
+
 function doClickAddText(e){
 	Ti.API.info("doClickAddText");
 	var coords = getLocation();
-	Ti.API.info("Result:" + coords);
-	
+	Ti.API.info("Result:" + coords.timestamp);
 }
 
-function fakeit(){
+// Stub method returning hardcoded coords
+function stub(){
 	var coords = {
 		accuracy: 10,
 		altitude: 0,
@@ -21,8 +25,8 @@ function fakeit(){
 }
 function getLocation(){
 	
-	// TODO this is a stub and should be removed when the location is up and running on emulators and simulatora
-	return fakeit();
+	// TODO this is a stub and should be removed when the location is up and running on emulators and simulators
+	if(STUB_IT)	return stub();
 	
 
 	if(OS_ANDROID){
